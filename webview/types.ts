@@ -5,6 +5,7 @@ export interface CharacterData {
   x: number;
   y: number;
   width: number;
+  marginRight?: number;
 }
 
 // Interface for cursor information

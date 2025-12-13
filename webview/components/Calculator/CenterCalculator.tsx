@@ -27,7 +27,11 @@ export const CenterCalculator: React.FC<CenterCalculatorProps> = ({ strings, gam
       const chars = segment.text.split('');
       for (const char of chars) {
         const charData = charMap[char];
-        const charWidth = charData ? charData.width : 4; // Use mapped width or default to 4
+        let charWidth = 4;
+        if (charData) {
+          charWidth = charData.width + (charData.marginRight ?? 0);
+        }
+
         totalWidth += charWidth;
       }
     }

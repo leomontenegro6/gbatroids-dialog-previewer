@@ -108,7 +108,7 @@ export const CHAR_MAP_MZM_PROJECTZM: { [key: string]: CharacterData } = {
   'ç': { x: 23, y: 4, width: 5 },
   'é': { x: 24, y: 4, width: 5 },
   'ê': { x: 25, y: 4, width: 5 },
-  'í': { x: 26, y: 4, width: 3 },
+  'í': { x: 26, y: 4, width: 3, marginRight: -1 },
   'ó': { x: 27, y: 4, width: 5 },
   'ô': { x: 28, y: 4, width: 5 },
   'õ': { x: 29, y: 4, width: 5 },

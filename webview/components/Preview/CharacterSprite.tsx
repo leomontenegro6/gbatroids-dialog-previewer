@@ -49,6 +49,7 @@ export const CharacterSprite: React.FC<CharacterSpriteProps> = ({
         width: `${charData.width}px`,
         backgroundImage: `url("${fontSpriteUri}")`,
         backgroundPosition: `${spriteX}px ${spriteY}px`,
+        marginRight: charData.marginRight ? `${charData.marginRight}px` : undefined
       }}
     />
   );

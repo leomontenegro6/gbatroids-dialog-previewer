@@ -1,0 +1,132 @@
+{
+  "name": "gbatroids-dialog-previewer",
+  "displayName": "GBA Metroids Dialog Previewer",
+  "description": "VS Code extension with React sidebar that previews dialog text for GBA Metroid games",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.106.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "dialogPreviewContainer",
+          "title": "Dialog Preview",
+          "icon": "$(comment-discussion)"
+        }
+      ]
+    },
+    "views": {
+      "dialogPreviewContainer": [
+        {
+          "type": "webview",
+          "id": "dialogPreviewer",
+          "name": "Dialog Previewer",
+          "when": "true"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "dialogPreviewer.refresh",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      }
+    ],
+    "configuration": {
+      "title": "GBA Metroids Dialog Previewer",
+      "properties": {
+        "gbaMetroidsDialogPreviewer.gameType": {
+          "type": "string",
+          "default": "mzm-vanilla",
+          "enum": [
+            "mzm-vanilla",
+            "mzm-projectzm",
+            "mf-vanilla",
+            "mf-mzmlike"
+          ],
+          "enumDescriptions": [
+            "Metroid Zero Mission (Vanilla)",
+            "Metroid Zero Mission (ProjectZM)",
+            "Metroid Fusion (Vanilla)",
+            "Metroid Fusion (MZM-like)"
+          ],
+          "description": "Select the game variant for character mapping"
+        },
+        "gbaMetroidsDialogPreviewer.dialogType": {
+          "type": "string",
+          "default": "twolines",
+          "enum": [
+            "mfdialog",
+            "multilines-black",
+            "multilines-elevator",
+            "multilines-zerosuit",
+            "twolines"
+          ],
+          "enumDescriptions": [
+            "MF Dialog",
+            "Multilines (Black)",
+            "Multilines (Elevator)",
+            "Multilines (Zero Suit)",
+            "Twolines"
+          ],
+          "description": "Select the dialog type for preview layout"
+        },
+        "gbaMetroidsDialogPreviewer.zoomLevel": {
+          "type": "number",
+          "default": 2,
+          "enum": [
+            1,
+            2,
+            3
+          ],
+          "enumDescriptions": [
+            "1x (Original size)",
+            "2x (Double size)",
+            "3x (Triple size)"
+          ],
+          "description": "Select the zoom level for the preview"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "npm run check-types && npm run lint && node esbuild.js --production",
+    "package-extension": "npm run package && vsce package",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.106.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.7.1",
+    "esbuild": "^0.27.1",
+    "eslint": "^9.39.1",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.48.1"
+  },
+  "dependencies": {
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1"
+  }
+}

@@ -1,0 +1,241 @@
+/* Webview styles */
+.container {
+  padding: 10px;
+  font-family: var(--vscode-font-family);
+}
+
+.header {
+  margin-bottom: 15px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.controls {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.control-label {
+  color: var(--vscode-descriptionForeground);
+  font-size: 11px;
+}
+
+.control-select {
+  background: var(--vscode-input-background);
+  color: var(--vscode-input-foreground);
+  border: 1px solid var(--vscode-input-border);
+  border-radius: 2px;
+  padding: 2px 4px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.empty-state {
+  color: var(--vscode-descriptionForeground);
+  font-size: 12px;
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+}
+
+.preview-container {
+  width: 240px;
+  background-repeat: no-repeat;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  image-rendering: pixelated;
+  transform-origin: top left;
+}
+
+/* Dialog type specific styles */
+.preview-container[style*="window-mfdialog"] {
+  height: 64px;
+}
+
+.preview-container[style*="window-multilines"],
+.preview-container[style*="window-multilines-black"],
+.preview-container[style*="window-multilines-elevator"],
+.preview-container[style*="window-multilines-zerosuit"] {
+  height: 160px;
+}
+
+.preview-container[style*="window-twolines"] {
+  height: 70px;
+}
+
+.preview-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.preview-line {
+  height: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 0; /* Remove spacing between inline-block elements */
+}
+
+.char-sprite {
+  display: inline-block;
+  height: 16px;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+}
+
+/* Color filters for text sprites */
+.char-sprite.color-red { 
+  filter: brightness(0) saturate(100%) invert(17%) sepia(100%) saturate(7477%) hue-rotate(0deg) brightness(94%) contrast(114%);
+}
+.char-sprite.color-blue { 
+  filter: brightness(0) saturate(100%) invert(8%) sepia(99%) saturate(7491%) hue-rotate(247deg) brightness(92%) contrast(143%);
+}
+.char-sprite.color-green { 
+  filter: brightness(0) saturate(100%) invert(63%) sepia(51%) saturate(6314%) hue-rotate(90deg) brightness(123%) contrast(123%);
+}
+.char-sprite.color-yellow { 
+  filter: brightness(0) saturate(100%) invert(87%) sepia(69%) saturate(911%) hue-rotate(357deg) brightness(107%) contrast(107%);
+}
+.char-sprite.color-purple { 
+  filter: brightness(0) saturate(100%) invert(17%) sepia(98%) saturate(3804%) hue-rotate(295deg) brightness(114%) contrast(124%);
+}
+.char-sprite.color-cyan { 
+  filter: brightness(0) saturate(100%) invert(82%) sepia(100%) saturate(4878%) hue-rotate(101deg) brightness(105%) contrast(101%);
+}
+
+/* Color filters with border for MF Dialog - combines color transformation + drop shadow */
+.char-sprite.color-red.with-border { 
+  filter: 
+    brightness(0) saturate(100%) invert(17%) sepia(100%) saturate(7477%) hue-rotate(0deg) brightness(94%) contrast(114%)
+    drop-shadow( 1px  0px 0px #400010) 
+    drop-shadow(-0.5px  0px 0px #400010)
+    drop-shadow( 0px  1px 0px #400010) 
+    drop-shadow( 0px -0.5px 0px #400010);
+}
+.char-sprite.color-blue.with-border { 
+  filter: 
+    brightness(0) saturate(100%) invert(8%) sepia(99%) saturate(7491%) hue-rotate(247deg) brightness(92%) contrast(143%)
+    drop-shadow( 1px  0px 0px #001040) 
+    drop-shadow(-0.5px  0px 0px #001040)
+    drop-shadow( 0px  1px 0px #001040) 
+    drop-shadow( 0px -0.5px 0px #001040);
+}
+.char-sprite.color-green.with-border { 
+  filter: 
+    brightness(0) saturate(100%) invert(63%) sepia(51%) saturate(6314%) hue-rotate(90deg) brightness(123%) contrast(123%)
+    drop-shadow( 1px  0px 0px #104000) 
+    drop-shadow(-0.5px  0px 0px #104000)
+    drop-shadow( 0px  1px 0px #104000) 
+    drop-shadow( 0px -0.5px 0px #104000);
+}
+.char-sprite.color-yellow.with-border { 
+  filter: 
+    brightness(0) saturate(100%) invert(87%) sepia(69%) saturate(911%) hue-rotate(357deg) brightness(107%) contrast(107%)
+    drop-shadow( 1px  0px 0px #404010) 
+    drop-shadow(-0.5px  0px 0px #404010)
+    drop-shadow( 0px  1px 0px #404010) 
+    drop-shadow( 0px -0.5px 0px #404010);
+}
+.char-sprite.color-purple.with-border { 
+  filter: 
+    brightness(0) saturate(100%) invert(17%) sepia(98%) saturate(3804%) hue-rotate(295deg) brightness(114%) contrast(124%)
+    drop-shadow( 1px  0px 0px #401040) 
+    drop-shadow(-0.5px  0px 0px #401040)
+    drop-shadow( 0px  1px 0px #401040) 
+    drop-shadow( 0px -0.5px 0px #401040);
+}
+.char-sprite.color-cyan.with-border { 
+  filter: 
+    brightness(0) saturate(100%) invert(82%) sepia(100%) saturate(4878%) hue-rotate(101deg) brightness(105%) contrast(101%)
+    drop-shadow( 1px  0px 0px #104040) 
+    drop-shadow(-0.5px  0px 0px #104040)
+    drop-shadow( 0px  1px 0px #104040) 
+    drop-shadow( 0px -0.5px 0px #104040);
+}
+.char-sprite.color-white.with-border { 
+  filter: 
+    drop-shadow( 1px  0px 0px #001040) 
+    drop-shadow(-0.5px  0px 0px #001040)
+    drop-shadow( 0px  1px 0px #001040) 
+    drop-shadow( 0px -0.5px 0px #001040);
+}
+
+.no-block-message {
+  color: var(--vscode-descriptionForeground);
+  font-size: 11px;
+  font-style: italic;
+  padding: 10px;
+  background: var(--vscode-input-background);
+  border: 1px solid var(--vscode-input-border);
+  border-radius: 3px;
+}
+
+/* Twolines calculation controls */
+.twolines-controls {
+  padding: 10px;
+}
+
+.twolines-controls h4 {
+  margin: 0 0 10px 0;
+  color: var(--vscode-foreground);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.line-calc-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.line-calc-container:last-child {
+  margin-bottom: 0;
+}
+
+.line-label {
+  color: var(--vscode-foreground);
+  font-size: 11px;
+  min-width: 60px;
+}
+
+.center-calc-button {
+  background: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+  border: none;
+  border-radius: 2px;
+  padding: 4px 8px;
+  font-size: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.center-calc-button:hover {
+  background: var(--vscode-button-hoverBackground);
+}
+
+.center-calc-button:active {
+  background: var(--vscode-button-activeBackground, var(--vscode-button-background));
+}
+
+.calculated-value {
+  color: var(--vscode-charts-green);
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+}

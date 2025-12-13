@@ -315,8 +315,6 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                 <link href="${styleResetUri}" rel="stylesheet">
                 <link href="${styleVSCodeUri}" rel="stylesheet">
                 <link href="${styleCustomUri}" rel="stylesheet">
-                
-                <title>Dialog Previewer</title>
             </head>
             <body>
                 <div id="root"></div>

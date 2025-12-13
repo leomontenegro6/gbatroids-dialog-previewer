@@ -1,6 +1,6 @@
 {
   "name": "gbatroids-dialog-previewer",
-  "displayName": "GBA Metroids Dialog Previewer",
+  "displayName": "GBATroids Dialog Previewer",
   "description": "VS Code extension with React sidebar that previews dialog text for GBA Metroid games",
   "version": "0.0.1",
   "engines": {
@@ -16,8 +16,8 @@
       "activitybar": [
         {
           "id": "dialogPreviewContainer",
-          "title": "Dialog Preview",
-          "icon": "$(comment-discussion)"
+          "title": "GBATroids Dialog Previewer",
+          "icon": "assets/logo_gbatroids_previewer.svg"
         }
       ]
     },
@@ -26,7 +26,7 @@
         {
           "type": "webview",
           "id": "dialogPreviewer",
-          "name": "Dialog Previewer",
+          "name": "",
           "when": "true"
         }
       ]
@@ -39,7 +39,7 @@
       }
     ],
     "configuration": {
-      "title": "GBA Metroids Dialog Previewer",
+      "title": "GBATroids Dialog Previewer",
       "properties": {
         "gbaMetroidsDialogPreviewer.gameType": {
           "type": "string",

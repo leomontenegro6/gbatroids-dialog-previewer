@@ -1,120 +1,31 @@
-# GBA Metroids Dialog Previewer
+# gbatroids-dialog-previewer
 
-Uma extensão profissional do VS Code para preview e desenvolvimento de diálogos dos jogos GBA Metroid. Oferece renderização em tempo real com fontes originais, sistema de cores avançado, processamento de scripts e calculadora automática de centralização.
+Essa é uma extensão do VSCode que permite pré-visualizar scripts dos jogos de Metroid para Gameboy Advance, especificamente para fins de auxiliar projetos de revisão das traduções existentes de [Metroid Zero Mission](https://github.com/leomontenegro6/metroid-zero-mission-traducao-ptbr) e Metroid Fusion, feitas em 2008.
 
-## ✨ Funcionalidades
+Ela adiciona uma sidebar à esquerda, que quando ativa, exibe uma área que escuta eventos chamados quando um arquivo é editado no VSCode. Através desses eventos, desde que o usuário esteja editando os arquivos .asm no formato dos repositórios acima, será exibida uma prévia de como o diálogo apareceria ingame.
 
-- **🎮 Preview em tempo real**: Renderização visual usando fontes e janelas originais dos jogos
-- **🎯 Múltiplos jogos**: Metroid Zero Mission (Vanilla/ProjectZM) e Metroid Fusion (Vanilla/MZM-like) 
-- **📝 Tipos de diálogo**: MF Dialog, Twolines, Multilines (Black/Elevator/Zero Suit)
-- **🌈 Sistema de cores**: 7 cores com tags (`<yellow>`, `<red>`, `<purple>`, `<green>`, `<blue>`, `<cyan>`, `<white>`)
-- **⚙️ Processamento de scripts**: Remove tags hex automáticamente e converte botões para Unicode (Ⓐ, Ⓑ, ⬆, ➡, etc.)
-- **📐 Calculadora de centralização**: Para Twolines, calcula automaticamente valores hex para centrar texto
+A ferramenta foi feita pensando nos dois jogos de Metroid de GBA, levando em consideração as possíveis variações de fontes neles (originais ou reduzidas), bem como suas respectivas larguras VWF. Também conta com diferentes modos de pré-visualização, seja de diálogos de duas linhas como falas ou mensagens de obtenção de itens, até cutscenes de múltiplas linhas.
 
-- **💾 Configuração persistente**: Zoom (1x-3x), tipo de jogo e tipo de diálogo salvos automaticamente
+# Como utilizar
 
-## 🚀 Como usar
+Tendo os scripts em ASM de um dos jogos de Metroid de GBA obtidos no repositório em mãos, baixe o arquivo "gbatroids-dialog-previewer-0.0.1.vsix" e [instale-o manualmente no seu VSCode](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-vsix).
 
-1. **Compile**: `npm run compile`
-2. **Debug**: Pressione `F5` no VS Code para lançar nova instância  
-3. **Sidebar**: Encontre "Dialog Previewer" na barra lateral esquerda
-4. **Arquivo**: Abra arquivo assembly (.s, .asm) com blocos `block_x_str_y`
-5. **Navegue**: Mova cursor pelos blocos para ver preview automático
-6. **Configure**: Ajuste jogo, tipo de diálogo e zoom conforme necessário
-7. **Calcule**: Use calculadora de centralização para valores hex precisos
+Se feito corretamente, aparecerá um ícone de uma folha de papel com uma letra "P" ao centro, que quando clicado, mostrará as prévias dos diálogos em tempo real. A prévia considera a posição do cursor de texto, tenta determinar o diálogo que o cursor está, e por fim pega seus caracteres para exibir na prévia.
 
-## 📁 Estrutura do Projeto
+![alt text](image1.png)
 
-```
-src/                          # Código da extensão VS Code
-webview/                      # Interface React modular
-├── components/               # Componentes organizados por função
-├── hooks/                    # Hooks customizados
-├── utils/                    # Funções utilitárias
-└── charmaps/                 # Mapeamentos de caracteres por jogo
-assets/                       # Fontes e janelas originais dos jogos
-```
+Também é possível alternar entre vários tipos de prévia, bem como zoom de até 3x:
 
-## 🛠️ Desenvolvimento
+![alt text](image2.png)
 
-### Pré-requisitos
+Utilizando dessa prévia, é possível determinar quando um diálogo está próximo do limite da tela ou não, para poder ajustá-lo de acordo, sem precisar testar ingame.
 
-- **Node.js** 16+ 
-- **npm** ou **yarn**
-- **VS Code** 1.74+
+# Como essa extensão foi desenvolvida?
 
-### Comandos de desenvolvimento
+Tomando por base o [mmbn-dialog-previewer](https://github.com/leomontenegro6/mmbn-dialog-previewer) e [cdos-dialog-previewer](https://github.com/leomontenegro6/cdos-dialog-previewer), optei por solicitar ao Copilot em modo Agente para criar a extensão, explicando cada um dos requisitos necessários para extensão, bem como incrementando ela com a inclusão de React no webview, dentre outras coisas. É seguro dizer que pelo menos 80% do código foi redigido dessa forma, comigo repassando os requisitos e passando por vários prompts e iterações até atingir o resultado satisfatório. Foi um bom aprendizado para mim, tanto de IA como React.
 
-```bash
-# Compilação
-npm run compile          # Compila uma vez
-npm run watch           # Watch mode (recompila automaticamente)
+Já na parte de compilar ela para arquivos .vsix, eu segui [essas instruções referentes a como publicar extensões](https://code.visualstudio.com/api/working-with-extensions/publishing-extension). Elas ensinam não só como compilar arquivos .vsix, como também como publicá-las no Marketplace do VSCode. No meu caso, por essa ser uma extensão bem específica e útil apenas para um caso de uso em comum, optei por distribuir o .vsix manualmente por aqui mesmo. Ao meu ver, seria mais válido estar no Marketplace se fosse uma solução mais genérica, mas como torná-la genérica daria um trabalhinho considerável, optei por fazer desta maneira.
 
-# Testes e debug  
-npm test               # Executa testes unitários
-F5                     # Debug no VS Code (nova instância)
+# Disclaimer
 
-# Build final
-npm run package        # Gera arquivo .vsix para distribuição
-```
-
-## ⚙️ Tecnologias
-
-- **TypeScript** - Tipagem estática e desenvolvimento robusto
-- **React** - Componentes funcionais com hooks personalizados  
-- **VS Code API** - Webview, FileSystemWatcher, Configuration
-- **esbuild** - Bundler ultra-rápido com hot reload
-- **CSS** - Filtros avançados para sistema de cores
-
-## 🔧 Como Funciona
-
-### 1. **Detecção de Blocos**
-- Monitora arquivos `.s`, `.asm` via `onDidChangeTextDocument`
-- Detecta padrões `block_x_str_y` com regex
-- Extrai strings `.string1`, `.string2`, etc.
-
-### 2. **Sistema de Renderização**
-```typescript
-// Pipeline de processamento
-text → parseColorTags() → processScriptTags() → renderSprites()
-```
-
-### 3. **Calculadora de Centralização** 
-```typescript
-// Para Twolines: calcula largura total e centraliza
-totalWidth = Σ(characterWidths)
-centerOffset = (222 - totalWidth) / 2
-hexValue = centerOffset.toString(16).toUpperCase()
-```
-
-
-
-## 💡 Para que serve
-
-- **Desenvolvimento de ROM hacks**: Visualizar diálogos durante codificação
-- **Tradução de jogos**: Verificar se texto traduzido cabe nas janelas
-- **Centralization helper**: Calcular valores hex para centralizar texto
-- **Validação visual**: Conferir tags de cor e formatação antes de compilar
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Criei esta ferramenta para auxiliar em diversas iniciativas de fã-traduções de jogos de Metroid de GBA para português brasileiro. Estou disponibilizando o código para quem se interessar. Sintam-se livres para utilizar do seu código à vontade, seja para adaptar para outros jogos ou para torná-la algo ainda maior do que atualmente é.

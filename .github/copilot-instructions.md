@@ -1,6 +1,6 @@
-# GBA Metroids Dialog Previewer - VSCode Extension
+# GBATroids Dialog Previewer - VSCode Extension
 
-Esta é uma extensão profissional do VSCode para preview de diálogos dos jogos GBA Metroid. Oferece uma sidebar interativa que renderiza texto em tempo real usando fontes e janelas originais dos jogos, com suporte completo a tags de cor, processamento de scripts e calculadora de centralização automática.
+Esta é uma extensão profissional do VSCode para preview de diálogos dos jogos de Metroid para GBA. Oferece uma sidebar interativa que renderiza texto em tempo real usando fontes e janelas originais dos jogos, com suporte completo a tags de cor, processamento de scripts e calculadora de centralização automática.
 
 ## Funcionalidades Principais
 

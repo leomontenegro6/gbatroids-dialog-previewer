@@ -1,7 +1,7 @@
 import { CharacterData } from '../../types';
 
 export const CHAR_MAP_MZM_VANILLA: { [key: string]: CharacterData } = {
-  ' ': { x: 0, y: 0, width: 4 },
+  ' ': { x: 0, y: 0, width: 6 },
   '_': { x: 0, y: 0, width: 3 },
   '!': { x: 1, y: 0, width: 6 },
   '"': { x: 2, y: 0, width: 7 },
@@ -17,7 +17,7 @@ export const CHAR_MAP_MZM_VANILLA: { [key: string]: CharacterData } = {
   '*': { x: 10, y: 0, width: 7 },
   '+': { x: 11, y: 0, width: 7 },
   ',': { x: 12, y: 0, width: 4 },
-  '-': { x: 13, y: 0, width: 7 },
+  '-': { x: 13, y: 0, width: 8 },
   '.': { x: 14, y: 0, width: 4 },
   '/': { x: 15, y: 0, width: 7 },
   '0': { x: 16, y: 0, width: 7 },
@@ -80,13 +80,13 @@ export const CHAR_MAP_MZM_VANILLA: { [key: string]: CharacterData } = {
   'q': { x: 17, y: 2, width: 6 },
   'r': { x: 18, y: 2, width: 5 },
   's': { x: 19, y: 2, width: 6 },
-  't': { x: 20, y: 2, width: 4 },
+  't': { x: 20, y: 2, width: 5 },
   'u': { x: 21, y: 2, width: 6 },
   'v': { x: 22, y: 2, width: 6 },
   'w': { x: 23, y: 2, width: 6 },
   'x': { x: 24, y: 2, width: 6 },
   'y': { x: 25, y: 2, width: 6 },
-  'z': { x: 26, y: 2, width: 5 },
+  'z': { x: 26, y: 2, width: 6 },
 
   'À': { x: 6, y: 4, width: 7 },
   'Á': { x: 7, y: 4, width: 7 },

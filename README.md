@@ -8,7 +8,7 @@ A ferramenta foi feita pensando nos dois jogos de Metroid de GBA, levando em con
 
 # Como utilizar
 
-Tendo os scripts em ASM de um dos jogos de Metroid de GBA obtidos no repositório em mãos, baixe o arquivo "gbatroids-dialog-previewer-0.0.1.vsix" e [instale-o manualmente no seu VSCode](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-vsix).
+Tendo os scripts em ASM de um dos jogos de Metroid de GBA obtidos no repositório em mãos, baixe o arquivo "gbatroids-dialog-previewer-0.0.2.vsix" e [instale-o manualmente no seu VSCode](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-vsix).
 
 Se feito corretamente, aparecerá um ícone de uma folha de papel com uma letra "P" ao centro, que quando clicado, mostrará as prévias dos diálogos em tempo real. A prévia considera a posição do cursor de texto, tenta determinar o diálogo que o cursor está, e por fim pega seus caracteres para exibir na prévia.
 

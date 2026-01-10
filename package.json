@@ -2,7 +2,7 @@
   "name": "gbatroids-dialog-previewer",
   "displayName": "GBATroids Dialog Previewer",
   "description": "VS Code extension with React sidebar that previews dialog text for GBA Metroid games",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "SolidOne",
   "repository": "https://github.com/leomontenegro6/gbatroids-dialog-previewer",
   "engines": {

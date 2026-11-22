@@ -1,3 +1,5 @@
+> **Extensão depreciada:** este projeto foi substituído pelo [game-dialog-previewer](https://github.com/leomontenegro6/game-dialog-previewer), que reúne os previewers suportados atualmente.
+
 # gbatroids-dialog-previewer
 
 Essa é uma extensão do VSCode que permite pré-visualizar scripts dos jogos de Metroid para Gameboy Advance, especificamente para fins de auxiliar projetos de revisão das traduções existentes de [Metroid Zero Mission](https://github.com/leomontenegro6/metroid-zero-mission-traducao-ptbr) e Metroid Fusion, feitas em 2008.
